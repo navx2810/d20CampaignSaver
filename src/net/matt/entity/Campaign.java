@@ -1,39 +1,76 @@
 package net.matt.entity;
 
-import java.io.File;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
-public class Campaign {
-	
+public class Campaign implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 	StringBuilder campaignLog;
 	String name, fileName;
-	ArrayList<Character> characters;
-	ArrayList<Item> items;
-	
-	/** Full Constructor 
-	 * @param campaignLog - the full text log of the campaign
+	ArrayList<Character> partyList;
+	ArrayList<Item> itemList;
+	GregorianCalendar date = new GregorianCalendar();
+
+	/**
+	 * Full Constructor
+	 * 
+	 * @param campaignLog
+	 *            - the campaigns text log
 	 * @param name
+	 *            - the name of the campaign
 	 * @param fileName
-	 * @param characters
-	 * @param items
+	 *            - the file name for the campaign
+	 * @param partyList
+	 *            - the list of players engaged in this campaign
+	 * @param itemList
+	 *            - the list of items that are in this campaign
 	 */
 	public Campaign(StringBuilder campaignLog, String name, String fileName,
-			ArrayList<Character> characters, ArrayList<Item> items) {
+			ArrayList<Character> partyList, ArrayList<Item> itemList) {
 		this.campaignLog = campaignLog;
 		this.name = name;
 		this.fileName = fileName;
-		this.characters = characters;
-		this.items = items;
+		this.partyList = partyList;
+		this.itemList = itemList;
+	}
+
+	/**
+	 * Default Constructor
+	 * 
+	 * @param name
+	 *            - the name of the campaign
+	 * @param fileName
+	 *            - the file name for the campaign
+	 */
+	public Campaign(String name, String fileName) {
+		this.name = name;
+		this.fileName = fileName;
+		partyList = new ArrayList<Character>();
+		itemList = new ArrayList<Item>();
+	}
+
+	/** Adds a player's action to the log
+	 * @param log - the action to be logged
+	 * @param characterName - the player's character name
+	 */
+	public void addToLog(String log, String characterName) {
+		campaignLog.append(String.format("[%s/%s] %s: %s",
+				(date.get(Calendar.MONTH) + 1),
+				date.get(Calendar.DAY_OF_MONTH), name, log + "\n"));
 	}
 	
+	/** Adds a general action to the log (A player's death or an event that doesn't contain an individual)
+	 * @param log - the action or event to be logged
+	 */
+	public void addToLog(String log) {
+		campaignLog.append(String.format("[%s/%s] %s",
+				(date.get(Calendar.MONTH) + 1),
+				date.get(Calendar.DAY_OF_MONTH), log + "\n"));
+	}
+	
+	
 
-	
-	
-	
-	
-
-	
-	
 }
