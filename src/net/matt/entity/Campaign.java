@@ -59,7 +59,6 @@ public class Campaign implements Serializable {
 		this(campaign.getCampaignLog(), campaign.getName(), campaign.getFileName(), campaign.getPartyList(), campaign.getItemList());
 	}
 	
-	
 
 	/**
 	 * @return the campaignLog
