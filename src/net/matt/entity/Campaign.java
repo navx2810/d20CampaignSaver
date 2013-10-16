@@ -51,6 +51,57 @@ public class Campaign implements Serializable {
 		partyList = new ArrayList<Character>();
 		itemList = new ArrayList<Item>();
 	}
+	
+	/** Copy Constructor
+	 * @param campaign - the campaign to be copied
+	 */
+	public Campaign(Campaign campaign){
+		this(campaign.getCampaignLog(), campaign.getName(), campaign.getFileName(), campaign.getPartyList(), campaign.getItemList());
+	}
+	
+	
+
+	/**
+	 * @return the campaignLog
+	 */
+	public StringBuilder getCampaignLog() {
+		return campaignLog;
+	}
+
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * @return the fileName
+	 */
+	public String getFileName() {
+		return fileName;
+	}
+
+	/**
+	 * @return the partyList
+	 */
+	public ArrayList<Character> getPartyList() {
+		return partyList;
+	}
+
+	/**
+	 * @return the itemList
+	 */
+	public ArrayList<Item> getItemList() {
+		return itemList;
+	}
+
+	/**
+	 * @return the date
+	 */
+	public GregorianCalendar getDate() {
+		return date;
+	}
 
 	/** Adds a player's action to the log
 	 * @param log - the action to be logged

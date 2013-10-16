@@ -42,6 +42,42 @@ public class Character {
 		this.backpack = backpack;
 	}
 
+	
+	
+	/** Default Constructor
+	 * @param characterName - the name of the character
+	 * @param playerName - the name of the player controlling this character
+	 * @param characterClass - the character's class
+	 * @param characterMisc - any miscellaneous information about this character
+	 * @param dexterity - stat
+	 * @param constitution - stat
+	 * @param intelligence - stat
+	 * @param charisma - stat
+	 * @param strength - stat
+	 * @param wisdom - stat
+	 * @param maxHP - the characters maximum hit points
+	 * @param currentHP - the characters current hit points
+	 */
+	public Character(String characterName, String playerName,
+			String characterClass, String characterMisc, int dexterity,
+			int constitution, int intelligence, int charisma, int strength,
+			int wisdom, int maxHP, int currentHP) {
+		this.characterName = characterName;
+		this.playerName = playerName;
+		this.characterClass = characterClass;
+		this.characterMisc = characterMisc;
+		this.dexterity = dexterity;
+		this.constitution = constitution;
+		this.intelligence = intelligence;
+		this.charisma = charisma;
+		this.strength = strength;
+		this.wisdom = wisdom;
+		this.maxHP = maxHP;
+		this.currentHP = currentHP;
+	}
+
+
+
 	/* ***************************************
 	 * 				Getters
 	 * ***************************************/
